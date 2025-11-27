@@ -1,0 +1,295 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===========================================
+   OPTION A — PREMIUM DEEP PURPLE THEME
+   Your original animations & effects kept
+   =========================================== */
+
+:root {
+  /* ----- Main Application Colors ----- */
+  --background: #FDF1F7;
+  --foreground: #2A0E1C;
+
+  --card: #FFFFFF;
+  --card-foreground: #2A0E1C;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #2A0E1C;
+
+  --primary: #6D214F;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #8E3B68;
+  --secondary-foreground: #FFFFFF;
+
+  --muted: #F7DFEA;
+  --muted-foreground: #6D214F;
+
+  --accent: #B56F94;
+  --accent-foreground: #3B1227;
+
+  --destructive: #E56A7F;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #D9A6C0;
+  --input: #F6E4EE;
+  --ring: #6D214F;
+
+  /* ----- Charts ----- */
+  --chart-1: #6D214F;
+  --chart-2: #8E3B68;
+  --chart-3: #B56F94;
+  --chart-4: #E6BED2;
+  --chart-5: #F7DFEA;
+
+  --radius: 0.75rem;
+
+  /* ----- Sidebar Colors ----- */
+  --sidebar: #6D214F;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #8E3B68;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #B56F94;
+  --sidebar-accent-foreground: #3B1227;
+  --sidebar-border: #D9A6C0;
+  --sidebar-ring: #6D214F;
+}
+
+/* ===========================================
+   DARK MODE THEME (Option A colors adapted)
+   =========================================== */
+
+.dark {
+  --background: #1A0A12;
+  --foreground: #FDECF4;
+
+  --card: #2A0E1C;
+  --card-foreground: #FDECF4;
+
+  --popover: #2A0E1C;
+  --popover-foreground: #FDECF4;
+
+  --primary: #6D214F;
+  --primary-foreground: #FDECF4;
+
+  --secondary: #8E3B68;
+  --secondary-foreground: #FDECF4;
+
+  --muted: #3F1B2B;
+  --muted-foreground: #E6BED2;
+
+  --accent: #B56F94;
+  --accent-foreground: #2A0E1C;
+
+  --destructive: #E56A7F;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #4A2436;
+  --input: #3A1A29;
+  --ring: #6D214F;
+
+  --chart-1: #B56F94;
+  --chart-2: #6D214F;
+  --chart-3: #8E3B68;
+  --chart-4: #E6BED2;
+  --chart-5: #F7DFEA;
+
+  --sidebar: #2A0E1C;
+  --sidebar-foreground: #FDECF4;
+  --sidebar-primary: #6D214F;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #8E3B68;
+  --sidebar-accent-foreground: #FDECF4;
+  --sidebar-border: #4A2436;
+  --sidebar-ring: #6D214F;
+}
+
+/* ===========================================
+   Tailwind Theming Layer
+   =========================================== */
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ===========================================
+   BASE ELEMENTS
+   =========================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===========================================
+   CURSOR OVERRIDES
+   =========================================== */
+
+/* Default pointer for UI */
+html, body, #__next, #__next *:not(input):not(textarea):not(select) {
+  cursor: pointer !important;
+}
+
+/* Preserve text cursor for input fields */
+input, textarea, select {
+  cursor: text !important;
+}
+
+/* ===========================================
+   CARD ANIMATIONS — ORIGINAL (UNCHANGED)
+   =========================================== */
+
+.card-animated {
+  position: relative;
+  overflow: hidden;
+  transition: transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s cubic-bezier(.2,.9,.2,1);
+  transform: translateZ(0);
+}
+
+.card-animated > * {
+  position: relative;
+  z-index: 10;
+}
+
+/* Soft moving gradient */
+.card-animated::before {
+  content: '';
+  position: absolute;
+  inset: -30% -30% auto -30%;
+  background: linear-gradient(120deg,
+      rgba(99,102,241,0.16),
+      rgba(16,185,129,0.10) 45%,
+      rgba(236,72,153,0.08) 100%);
+  background-size: 200% 200%;
+  filter: blur(28px);
+  transition: background-position 700ms ease, opacity 300ms ease;
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+
+.card-animated:hover::before {
+  background-position: 100% 50%;
+}
+
+/* Accent bubble */
+.card-animated .card-accent {
+  position: absolute;
+  right: -48px;
+  top: -48px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.22), transparent 40%);
+  filter: blur(18px);
+  transition: transform .6s cubic-bezier(.2,.9,.2,1), opacity .4s ease;
+}
+
+.card-animated:hover .card-accent {
+  transform: translateY(-6px) rotate(6deg);
+}
+
+/* Lift on hover */
+.card-animated:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 26px 60px rgba(2,6,23,0.26), 0 8px 18px rgba(2,6,23,0.10);
+}
+
+.card-animated:focus-visible {
+  outline: 2px solid rgba(99,102,241,0.22);
+  outline-offset: 2px;
+}
+
+/* Image zoom */
+.card-image-zoom img {
+  transition: transform .6s cubic-bezier(.2,.9,.2,1), opacity .4s ease;
+  will-change: transform;
+}
+
+.card-image-zoom:hover img {
+  transform: scale(1.06) translateY(-4px);
+}
+
+/* ===========================================
+   SHIMMER LOADING — ORIGINAL (UNCHANGED)
+   =========================================== */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg,
+      rgba(255,255,255,0.02) 0%,
+      rgba(255,255,255,0.04) 50%,
+      rgba(255,255,255,0.02) 100%);
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.06) 50%,
+      transparent 100%);
+  transform: translateX(-100%);
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
