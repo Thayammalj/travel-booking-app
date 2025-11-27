@@ -90,7 +90,11 @@ export default function BookingForm({ spotId, placeId }: any) {
     }, 900)
   }
 
+
+
+  
   return (
+    
     <div className="p-8 bg-background min-h-screen">
       <div className="max-w-2xl mx-auto">
         <Link href={`/place/${placeId}`}>
